@@ -9,31 +9,36 @@ import UIKit
 import SnapKit
 
 class RestaurantVC: UITableViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
     }
-    
+
     // MARK: - Load data
     let restaurants = fetchData()
+
     struct Identifier {
         var datacell: String = "datacell"
         var favoritecell: String = "favoritecell"
     }
-    var identifier = Identifier()
+
+    let identifier = Identifier()
+
     enum Section {
         case all
     }
-    
+
+    let currentCell = "datacell"
+    let cellType = RestaurantDataCell.self
+
     // MARK: - Configure view
     func configureTableView() {
         title = "FoodPin"
-        tableView?.register(RestaurantDataCell.self, forCellReuseIdentifier: identifier.datacell)
-        self.tableView.rowHeight = 140
+        tableView?.register(cellType.self, forCellReuseIdentifier: currentCell)
+        tableView.rowHeight = 140
         showDataSource()
     }
-    
+
     func showDataSource() {
         tableView.dataSource = dataSource
         var snapshot = NSDiffableDataSourceSnapshot<Section, Restaurant>()
@@ -41,38 +46,38 @@ class RestaurantVC: UITableViewController {
         snapshot.appendItems(restaurants, toSection: .all)
         dataSource.apply(snapshot, animatingDifferences: false)
     }
-    
+
     func configureDataSource() -> UITableViewDiffableDataSource<Section, Restaurant> {
-        let cellIdentifier = identifier.datacell
+        let cellIdentifier = currentCell
         let dataSource = UITableViewDiffableDataSource<Section, Restaurant>(
-            tableView: tableView,
-            cellProvider: {  tableView, indexPath, restaurant in
-                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantDataCell
-                cell.set(restaurant: restaurant)
-                return cell
-            }
+                tableView: tableView,
+                cellProvider: { tableView, indexPath, restaurant in
+                    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantDataCell
+                    cell.set(restaurant: restaurant)
+                    return cell
+                }
         )
         return dataSource
     }
-    
+
     lazy var dataSource = configureDataSource()
-    
+
     // MARK: - Function
-    
-    
+
+
 }
 
 
 func fetchData() -> [Restaurant] {
     let restaurants: [Restaurant] = [
-        Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location:"Hong Kong", image: "cafedeadend", isFavorite: false),
-        Restaurant(name: "Homei", type: "Cafe", location: "Hong Kong", image:"homei", isFavorite: false),
+        Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "Hong Kong", image: "cafedeadend", isFavorite: false),
+        Restaurant(name: "Homei", type: "Cafe", location: "Hong Kong", image: "homei", isFavorite: false),
         Restaurant(name: "Teakha", type: "Tea House", location: "Hong Kong", image: "teakha", isFavorite: false),
         Restaurant(name: "Cafe loisl", type: "Austrian / Causual Drink", location: "Hong Kong", image: "cafeloisl", isFavorite: false),
         Restaurant(name: "Petite Oyster", type: "French", location: "Hong Kong", image: "petiteoyster", isFavorite: false),
         Restaurant(name: "For Kee Restaurant", type: "Bakery", location: "HongKong", image: "forkee", isFavorite: false),
         Restaurant(name: "Po's Atelier", type: "Bakery", location: "Hong Kong", image: "posatelier", isFavorite: false),
-        Restaurant(name: "Bourke Street Backery", type: "Chocolate", location:"Sydney", image: "bourkestreetbakery", isFavorite: false),
+        Restaurant(name: "Bourke Street Backery", type: "Chocolate", location: "Sydney", image: "bourkestreetbakery", isFavorite: false),
         Restaurant(name: "Haigh's Chocolate", type: "Cafe", location: "Sydney", image: "haigh", isFavorite: false),
         Restaurant(name: "Palomino Espresso", type: "American / Seafood", location: "Sydney", image: "palomino", isFavorite: false),
         Restaurant(name: "Upstate", type: "American", location: "New York", image: "upstate", isFavorite: false),

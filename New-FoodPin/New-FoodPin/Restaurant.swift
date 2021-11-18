@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct Restaurant: Hashable {
     var name: String = ""
     var type: String = ""
