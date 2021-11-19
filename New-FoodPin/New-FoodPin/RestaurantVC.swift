@@ -28,14 +28,14 @@ class RestaurantVC: UITableViewController {
         case all
     }
 
-    let currentCell = "datacell"
-    let cellType = RestaurantDataCell.self
-
+    let currentCell = "favoritecell"
+    
+    
     // MARK: - Configure view
     func configureTableView() {
         title = "FoodPin"
-        tableView?.register(cellType.self, forCellReuseIdentifier: currentCell)
-        tableView.rowHeight = 140
+        tableView?.register(fetchCellType(currentCell: currentCell), forCellReuseIdentifier: currentCell)
+        tableView.rowHeight = fetchRowHeight(currentCell: currentCell)
         showDataSource()
     }
 
@@ -48,11 +48,10 @@ class RestaurantVC: UITableViewController {
     }
 
     func configureDataSource() -> UITableViewDiffableDataSource<Section, Restaurant> {
-        let cellIdentifier = currentCell
         let dataSource = UITableViewDiffableDataSource<Section, Restaurant>(
                 tableView: tableView,
                 cellProvider: { tableView, indexPath, restaurant in
-                    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantDataCell
+                    let cell = tableView.dequeueReusableCell(withIdentifier: self.currentCell, for: indexPath) as! RestaurantFavoriteCell
                     cell.set(restaurant: restaurant)
                     return cell
                 }
@@ -65,6 +64,31 @@ class RestaurantVC: UITableViewController {
     // MARK: - Function
 
 
+}
+
+
+func fetchRowHeight(currentCell: String) -> CGFloat {
+    switch currentCell {
+    case "datacell":
+        return 140
+    case "favoritecell":
+        return 295
+    default:
+        return 100
+    }
+}
+
+
+func fetchCellType(currentCell: String) -> AnyClass {
+    switch currentCell {
+    case "datacell":
+        return RestaurantDataCell.self
+    case "favoritecell":
+        return RestaurantFavoriteCell.self
+    default:
+        return UITableViewCell.self
+    }
+    
 }
 
 

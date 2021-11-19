@@ -63,14 +63,15 @@ class RestaurantFavoriteCell: UITableViewCell {
     func configureRestaurantImage() {
         restaurantIamge.layer.cornerRadius = 15
         restaurantIamge.clipsToBounds = true
+        restaurantIamge.contentMode = .scaleAspectFill
     }
 
     func setConstraints() {
 
         restaurantIamge.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 120, height: 120))
+            make.size.height.equalTo(200)
             make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
             make.top.equalToSuperview().offset(10)
         }
 
