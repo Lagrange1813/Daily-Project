@@ -11,6 +11,7 @@
 		7A584E4127586FCD00B2AFCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A584E4027586FCD00B2AFCF /* SceneDelegate.swift */; };
 		7A584E4327586FCD00B2AFCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A584E4227586FCD00B2AFCF /* ViewController.swift */; };
 		7A584E4827586FD000B2AFCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A584E4727586FD000B2AFCF /* Assets.xcassets */; };
+		7A6EA9412773529300FC6AC5 /* FixedSizeQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6EA9402773529300FC6AC5 /* FixedSizeQueue.swift */; };
 		7A85F7E227649BEB003280CA /* CollisionConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85F7E127649BEB003280CA /* CollisionConfigure.swift */; };
 		7A85F7E427649C40003280CA /* ButtonConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85F7E327649C40003280CA /* ButtonConfigure.swift */; };
 		7A85F7E627649CDC003280CA /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85F7E527649CDC003280CA /* Game.swift */; };
@@ -35,6 +36,7 @@
 		7A584E4727586FD000B2AFCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A584E4C27586FD000B2AFCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A584E5227586FF100B2AFCF /* Airplane-Test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Airplane-Test.entitlements"; sourceTree = "<group>"; };
+		7A6EA9402773529300FC6AC5 /* FixedSizeQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedSizeQueue.swift; sourceTree = "<group>"; };
 		7A85F7E127649BEB003280CA /* CollisionConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionConfigure.swift; sourceTree = "<group>"; };
 		7A85F7E327649C40003280CA /* ButtonConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConfigure.swift; sourceTree = "<group>"; };
 		7A85F7E527649CDC003280CA /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				7AB72B6D2767487B004836BD /* Queue.swift */,
 				7AE24D48277153BE00826E25 /* JoyStick.swift */,
+				7A6EA9402773529300FC6AC5 /* FixedSizeQueue.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				7A584E3F27586FCD00B2AFCF /* AppDelegate.swift in Sources */,
 				7A85F7E427649C40003280CA /* ButtonConfigure.swift in Sources */,
 				7A85F7EB27649DA0003280CA /* Restart.swift in Sources */,
+				7A6EA9412773529300FC6AC5 /* FixedSizeQueue.swift in Sources */,
 				7AB72B6E2767487B004836BD /* Queue.swift in Sources */,
 				7AE24D49277153BE00826E25 /* JoyStick.swift in Sources */,
 				7A85F82F2764CBF0003280CA /* SQLiteManager.swift in Sources */,
